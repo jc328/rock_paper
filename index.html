@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF -8">
+    <title>Rock Scissors Paper War!</title>
+    <link rel="stylesheet" href = "./style.css">
+</head>
+
+<body>
+    <div class='play'>
+    <h1>Rock Paper Scissors Game</h1>
+    <div class = "row">
+        <button id="start" >Start</button>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <div id="roundResult"></div>
+        <div id="score"></div>
+        
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<script>
+    let round;
+    let wins=0;
+    let losses=0;
+
+    rock.addEventListener('click', function() {
+        gameRound('rock')
+        console.log(round)
+    })
+    paper.addEventListener('click', function() {
+        gameRound('paper')
+    })
+    scissors.addEventListener('click', function() {
+        gameRound('scissors')
+    })
+    start.addEventListener('click', function() {
+        start.style.display = "none"
+        round = prompt("How many rounds to play?")
+
+        
+    })
+
+    sco = document.createElement("h1")
+    document.getElementById("score").appendChild(sco)
+
+
+    function computerPlay() {
+        opt = ['rock','paper','scissors']
+        return opt[Math.floor(Math.random() * opt.length)]
+    }
+
+    function gameRound(playerSelection, computerSelection) {
+        comp = computerPlay();
+
+        
+
+
+       if (playerSelection === comp) {
+            roundResult.textContent= "Tie"
+        } else if (playerSelection === "rock" && comp === "scissors") {
+            wins++
+            roundResult.textContent= `You Win! ${playerSelection} beats ${comp}`
+        } else if (playerSelection === "paper" && comp === "rock") {
+            wins++
+            roundResult.textContent= `You Win! ${playerSelection} beats ${comp}`
+        } else if (playerSelection === "scissors" && comp === "paper") {
+            wins++
+            roundResult.textContent= `You Win! ${playerSelection} beats ${comp}`
+        } else {
+            losses++
+            roundResult.textContent= `You Lose! ${comp} beats ${playerSelection}`
+
+        }
+        console.log([playerSelection, comp])
+        console.log([wins,losses])
+
+        if (wins+losses >= round) {
+            if (wins>losses) {
+                roundResult.textContent= `You Win by ${wins} to ${losses}.  Game Over`
+                wins = 0
+                losses = 0
+            } else if (wins===losses) {
+                roundResult.textContent= `You Tie by ${wins} to ${losses}. Game Over`
+                wins = 0
+                losses = 0
+            } else {
+                roundResult.textContent= `You Lose by ${losses} to ${wins}. Game Over`
+                wins = 0
+                losses = 0
+            }
+        }
+        sco.innerHTML = `Player Score: ${wins}-Computer Score: ${losses}`
+
+        
+    }
+
+
+</script>
+</body>
+</html>

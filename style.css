@@ -1,0 +1,31 @@
+html {
+    font-size: 10px;
+    background: url(https://i.imgur.com/1QEhoKW.png) bottom center;
+   background-size: cover;
+}
+
+body {
+    padding: 20px;
+}
+
+button {
+    margin-top: 20px;
+    line-height: 60px;
+    font-weight: bold;
+    padding: 0 40px;
+    background: salmon;
+    border: none;
+  }
+
+  h1 {
+      margin: auto;
+  }
+
+  .score {
+      font-size: 20px;
+      display: inline;
+  }
+
+  #roundResult {
+      font-size: 20px;
+  }
